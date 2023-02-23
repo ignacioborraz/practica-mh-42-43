@@ -1,8 +1,10 @@
 import './App.css'
-import LayoutMain from './layouts/LayoutMain/LayoutMain'
 import CardEvent from './components/CardEvent/CardEvent'
 import ButtonIndex from './components/ButtonIndex/ButtonIndex'
 import { useState,useEffect } from 'react'
+import LayoutHero from './layouts/LayoutHero/LayoutHero'
+import LayoutForm from './layouts/LayoutForm/LayoutForm'
+import FormRegister from './components/FormRegister/FormRegister'
 
 function App() {
 
@@ -29,26 +31,34 @@ function App() {
 	}
 
 	return (
-		<LayoutMain>
-		<div class='app-main'>
-			<h3>EVENTOS</h3>
-			<ButtonIndex style='button-2' text='ver eventos' onClick={handleRender} />
-			<div class="app-events" id="events">
-				{/* el cambio de estado tiene que condicionar el mapeo */}
-				{/* si el estado está en true tiene que mostrar los eventos */}
-				{/* si el estado está en false no debe mostrar nada */}
-				{/* se suele utilizar la sintaxis del ternario para estos condicionales */}
-				{/* (condicion) ? (que hago si es true) : (que hago si es false) */}
-				{
-					(render) ? (
-						data.events.map(each=> <CardEvent key={each._id} data={each} />)
-					) : (
-						null
-					)
-				}
+		<>
+			<LayoutHero>
+			<div class='app-main'>
+				<h3>EVENTOS</h3>
+				<ButtonIndex style='button-2' text='ver eventos' onClick={handleRender} />
+				<div class="app-events" id="events">
+					{/* el cambio de estado tiene que condicionar el mapeo */}
+					{/* si el estado está en true tiene que mostrar los eventos */}
+					{/* si el estado está en false no debe mostrar nada */}
+					{/* se suele utilizar la sintaxis del ternario para estos condicionales */}
+					{/* (condicion) ? (que hago si es true) : (que hago si es false) */}
+					{
+						(render) ? (
+							data.events.map(each=> <CardEvent key={each._id} data={each} />)
+						) : (
+							null
+						)
+					}
+				</div>
 			</div>
-		</div>
-		</LayoutMain>
+			</LayoutHero>
+			<LayoutForm>
+				<div class='app-main'>
+					<h3>CREATE CATEGORY</h3>
+					<FormRegister />
+				</div>
+			</LayoutForm>
+		</>
 	)
 }
 

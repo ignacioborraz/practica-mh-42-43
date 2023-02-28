@@ -4,7 +4,7 @@ import './layoutHero.css'
 
 export default function LayoutHero(props) {
   return (
-    <div class="app-container-hero">
+    <div className='app-container-hero'>
         <NavBar />
         {props.children}
     </div>

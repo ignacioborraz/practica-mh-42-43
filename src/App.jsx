@@ -4,7 +4,9 @@ import ButtonIndex from './components/ButtonIndex/ButtonIndex'
 import { useState,useEffect } from 'react'
 import LayoutHero from './layouts/LayoutHero/LayoutHero'
 import LayoutForm from './layouts/LayoutForm/LayoutForm'
-import FormRegister from './components/FormRegister/FormRegister'
+import FormRegister from './pages/FormRegister/FormRegister'
+import { router } from './pages/index'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
 
@@ -32,16 +34,11 @@ function App() {
 
 	return (
 		<>
-			<LayoutHero>
-			<div class='app-main'>
+{/* 			<LayoutHero>
+			<div className='app-main'>
 				<h3>EVENTOS</h3>
 				<ButtonIndex style='button-2' text='ver eventos' onClick={handleRender} />
-				<div class="app-events" id="events">
-					{/* el cambio de estado tiene que condicionar el mapeo */}
-					{/* si el estado está en true tiene que mostrar los eventos */}
-					{/* si el estado está en false no debe mostrar nada */}
-					{/* se suele utilizar la sintaxis del ternario para estos condicionales */}
-					{/* (condicion) ? (que hago si es true) : (que hago si es false) */}
+				<div className="app-events" id="events">
 					{
 						(render) ? (
 							data.events.map(each=> <CardEvent key={each._id} data={each} />)
@@ -53,11 +50,9 @@ function App() {
 			</div>
 			</LayoutHero>
 			<LayoutForm>
-				<div class='app-main'>
-					<h3>CREATE CATEGORY</h3>
-					<FormRegister />
-				</div>
-			</LayoutForm>
+				<FormRegister />
+			</LayoutForm> */}
+			<RouterProvider router={router} />
 		</>
 	)
 }

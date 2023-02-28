@@ -4,7 +4,7 @@ import './layoutForm.css'
 
 export default function LayoutForm(props) {
   return (
-    <div class="app-container-form">
+    <div className="app-container-form">
         {props.children}
         <Footer />
     </div>

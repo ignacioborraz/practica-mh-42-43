@@ -33,10 +33,10 @@ function App() {
 	return (
 		<>
 			<LayoutHero>
-			<div class='app-main'>
+			<div className='app-main'>
 				<h3>EVENTOS</h3>
 				<ButtonIndex style='button-2' text='ver eventos' onClick={handleRender} />
-				<div class="app-events" id="events">
+				<div className="app-events" id="events">
 					{/* el cambio de estado tiene que condicionar el mapeo */}
 					{/* si el estado está en true tiene que mostrar los eventos */}
 					{/* si el estado está en false no debe mostrar nada */}
@@ -53,7 +53,7 @@ function App() {
 			</div>
 			</LayoutHero>
 			<LayoutForm>
-				<div class='app-main'>
+				<div className='app-main'>
 					<h3>CREATE CATEGORY</h3>
 					<FormRegister />
 				</div>

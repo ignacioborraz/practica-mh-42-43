@@ -5,7 +5,7 @@ import './layoutMain.css'
 
 export default function LayoutMain(props) {
   return (
-    <div class="app-container">
+    <div className="app-container">
         <NavBar />
         {props.children}
         <Footer />

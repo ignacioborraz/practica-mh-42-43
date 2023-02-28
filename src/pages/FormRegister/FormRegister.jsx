@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import './formRegister.css'
+import { Link as Anchor } from 'react-router-dom'
 import axios from 'axios'
 
 export default function FormRegister() {
@@ -31,8 +32,12 @@ export default function FormRegister() {
                 url,    /* URL del endpoint para crear una categoria */
                 data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
             )
+            //si el status es 200 el manejo de errores de validacion lo tengo que hacer acá
         } catch(error) {
+            //si el status es 400 (o cualquier otro de error) el manejo de errores de validacion lo tengo que hacer acá
             console.log(error)
+            let err = error.response.data.message
+            alert(err)
             console.log('ocurrio un error')
         }
     }
@@ -45,7 +50,10 @@ export default function FormRegister() {
             <input ref={description} type="text" id="description" name='description' required />
             <label htmlFor="admin_id">ADMIN_ID</label>
             <input ref={admin_id} type="text" id='admin_id' name='admin_id' required />
-            <input type="submit" value="CREATE" />
+            <input type="submit" value="primero" />
+            <Anchor to={`/notfound/${Math.random()*1000}`}>
+                <input type="submit" value="segundo" />
+            </Anchor>
         </form>
     )
 }
